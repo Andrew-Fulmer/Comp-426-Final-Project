@@ -1,0 +1,24 @@
+{
+  "name": "comp-426-final-project",
+  "version": "1.0.0",
+  "description": "I'm Andrew and I hope this works.",
+  "main": "index.js",
+  "dependencies": {
+    "bulma": "^0.8.0",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrew-Fulmer/Comp-426-Final-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andrew-Fulmer/Comp-426-Final-Project/issues"
+  },
+  "homepage": "https://github.com/Andrew-Fulmer/Comp-426-Final-Project#readme"
+}
