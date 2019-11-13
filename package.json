@@ -4,6 +4,7 @@
   "description": "I'm Andrew and I hope this works.",
   "main": "index.js",
   "dependencies": {
+    "browser-sync": "^2.26.7",
     "bulma": "^0.8.0",
     "jquery": "^3.4.1"
   },
