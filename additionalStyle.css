@@ -1,0 +1,27 @@
+.is-gradient{
+    background-size: 200%;
+    background-image: linear-gradient(to right, #08A4BD 0%, #DDCA7D 50%, #08A4BD 100% );
+    color:white;
+    transition: 1.5s;
+}
+
+.is-gradient:hover{
+    background-position: right center;
+    color:white;
+}
+
+.is-color-main{
+    background-color: #22333B;
+}
+
+.text-color-main{
+    color: #474448;
+}
+
+.is-color-secondary{
+    background-color: #22333B;
+}
+
+.drop-text:hover{
+    color: #474448;
+}
