@@ -32,7 +32,7 @@ async function handleSignup(user,pass){
 }
 
 
-function handleLogin(user,pass){
+async function handleLogin(user,pass){
     const loginUser = await $.ajax({
         method: 'post',
         url: 'http://localhost:3000/account/login',
@@ -41,6 +41,6 @@ function handleLogin(user,pass){
             "pass": pass,
         }
     });
-    console.log(loginUser);
+    console.log(loginUser.jwt);
 
 }

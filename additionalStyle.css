@@ -11,7 +11,7 @@
 }
 
 .is-color-main{
-    background-color: #22333B;
+    background-color: rgb(51, 52, 59);
 }
 
 .text-color-main{
@@ -24,4 +24,26 @@
 
 .drop-text:hover{
     color: #474448;
+}
+
+.ic{
+    padding: 15px;
+}
+
+.dark{
+    background-color:rgb(39, 38, 44);
+}
+
+.hovtext:hover{
+    color: #DDCA7D;
+    
+}
+
+.current-page-nav{
+    padding: 20px;
+}
+
+.nav-titles{
+    margin-left: 3px;
+    margin-top: 3px;
 }
