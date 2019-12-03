@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="is-color-main">
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="./additionalStyle.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <!--Top Bar-->
+    <header class="hero dark">
+        <div class="hero-head">
+            <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                        <a class="navbar-item y has-text-white-bis">Something here</a>
+                        <a class="navbar-item is-tab-is-hidden-mobile is-active has-text-white-bis">
+                            <span class="icon is-small ic">
+                                <i class="fas fa-home"></i>
+                            </span>
+                            Home</a>
+                        <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis ">About</a>
+                        <a class="navbar-item is-tab-is-hidden-mobile is-active has-text-white-bis">Github</a>
+                        <a class="navbar-item is-tab-is-hidden-mobile is-active has-text-white-bis">Tab 4</a>
+                </div>
+
+                <div class="navbar-menu navbar-end">
+                    <div class= "navbar-item">
+                        <div class="dropdown is-hoverable is-left">
+                            <div class="dropdown-trigger">
+                                <span class="icon is-small has-text-white-bis">
+                                    <i class="fas fa-chevron-down" aria-hidden="true"></i>        
+                                </span>
+                                <span class="has-text-white-bis" id="user">Username</span>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                <div class="dropdown-content">
+                                    <a href="#" class="dropdown-item">
+                                        <span class="icon is-small ic">
+                                            <i class="far fa-user-circle"></i>
+                                        </span>
+                                        Profile
+                                    </a>
+                                    <hr class="dropdown-divider">
+                                    <a class="dropdown-item">
+                                        <span class="icon is-small ic">
+                                            <i class="fas fa-power-off" ></i>
+                                        </span>
+                                        Logout
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                </div>
+                
+
+            </nav>
+        </div>
+    </header>
+
+    <!--Side Bar-->
+    <div class="">
+        <div class="columns">
+            <aside class="column is-2 aside dark has-text-white-bis">
+                <nav class="menu">
+                    <p class="menu-label  has-text-white-bis nav-titles">General</p>
+                    <ul class="menu-list ">
+                        <li class=" has-text-white-bis">
+                            <a href="userDashboard.html" class="has-text-white-bis">
+                                <span class="icon is-small">
+                                    <i class="fas fa-book-open"></i>
+                                </span>
+                            Dashboard
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="menu-label  has-text-white-bis nav-titles">Events</p>
+                    <ul class="menu-list">
+                        <li>
+                            <a href="yourEvents.html" class="has-text-white-bis">
+                                <span class="icon is-small">
+                                    <i class="far fa-bookmark"></i>  
+                                </span>
+                            Your Events
+                            </a>
+                        </li>
+                        <li>
+                            <a href="createEvent.html" class="has-text-white-bis">
+                                <span class="icon is-small">
+                                    <i class="far fa-calendar-plus"></i>
+                                </span>
+                            Create Event
+                            </a>
+                        </li>
+                        <li>
+                            <a href="searchEvents.html" class="has-text-white-bis">
+                                <span class="icon is-small">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            Search Events
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </aside>
+            <!--Main Info Goes Here-->
+            <main class="column main">
+                <nav class="breadcrumb is-small current-page-nav" aria-label="breadcrumbs">
+                    <ul>
+                        <li>
+                            <a href="userDashboard.html">Home</a>
+                        </li>
+                        <li>
+                            <a>Dashboard</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!--Scripts-->
+    <script src="https://kit.fontawesome.com/05343d1d5e.js" crossorigin="anonymous"></script>
+        
+</body>

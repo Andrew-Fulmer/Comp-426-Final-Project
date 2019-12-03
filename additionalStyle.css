@@ -1,0 +1,49 @@
+.is-gradient{
+    background-size: 200%;
+    background-image: linear-gradient(to right, #08A4BD 0%, #DDCA7D 50%, #08A4BD 100% );
+    color:white;
+    transition: 1.5s;
+}
+
+.is-gradient:hover{
+    background-position: right center;
+    color:white;
+}
+
+.is-color-main{
+    background-color: rgb(51, 52, 59);
+}
+
+.text-color-main{
+    color: #474448;
+}
+
+.is-color-secondary{
+    background-color: #22333B;
+}
+
+.drop-text:hover{
+    color: #474448;
+}
+
+.ic{
+    padding: 15px;
+}
+
+.dark{
+    background-color:rgb(39, 38, 44);
+}
+
+.hovtext:hover{
+    color: #DDCA7D;
+    
+}
+
+.current-page-nav{
+    padding: 20px;
+}
+
+.nav-titles{
+    margin-left: 3px;
+    margin-top: 3px;
+}

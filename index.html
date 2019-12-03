@@ -32,17 +32,12 @@
         <div class="hero-head">
             <nav class="navbar">
                 <div class="container">
-
-                    <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    </span>
+                    <span class="navbar-burger burger" data-target="navbarMenuHeroA"></span>
                     </div>
                         <div id="navbarMenuHeroA" class="navbar-menu">
                             <div class="navbar-end">
                             <span class="navbar-item">
-                            <a class="button is-primary is-inverted" href="https://github.com/Andrew-Fulmer/Comp-426-Final-Project">
+                            <a class="button is-rounded text-color-main is-inverted" href="https://github.com/Andrew-Fulmer/Comp-426-Final-Project">
                                 <span class="icon">
                                 <i class="fab fa-github"></i>
                                 </span>
@@ -92,19 +87,26 @@
     <br>
     <br>
     <div class="tile is-ancestor">
-            <div class="tile is-parent is-7">
+            <div class="tile is-parent is-9">
                 <div class="tile is-child box">
-                    <p> This will soon be our website, incorporating the google calendar API <br>
-                        The website will have a log in screen, then once logged in you'll be prompted to either create or search for a new planned event. <br>
-                        If you create a new one, you'll be promptes to name it, say available times, and be given a code to share to access the event. <br><br>
-                    
-                        We are currently still in the process of finalizing our plans for the website and soon will be working on more code.
-                    </p>
+                    <div class="container has-text-centered">
+                        <p>We can put stuff here about the website</p>
+                        <a class='button is-rounded' href="./userDashboard.html">User dashboard idea</a>
+                        
+                    </div>
                 </div>
             </div>
 
 <!--Right Tile-->
             <div class="tile is-parent is-vertical">
+                <div class="containter has-text-centered">
+                        <a href="./login.html" class="button is-rounded is-large is-gradient">Login</a>
+                        <br>
+                        <br>
+                        <a href="./signup.html" class="button is-rounded is-large is-gradient">Signup</a>
+                </div>
+                <br>
+
                 <div class="tile is-child box is-parent">
                     <p> More information if i put more words here will it make this not look so awkward. I've been trying to make up the login and sign up box
                         be on the same line but bulma just isn't having it Also the weird space on the far left of the input boxes is intentional as I was
@@ -112,66 +114,8 @@
                     </p>
 
                     <br>
-
-                    <!--Login Tile-->
-                    <div class="tile is-child box">
-                        <form>
-                            <h2 class="title">Login</h2>
-                            <div class="field">
-                                <label class="label">Username</label>
-                                <div class="control has-icons-left">
-                                    <input class="input" type="text" placeholder="Username">
-                                    <span class="icon is-small is-left">
-                                            <i class="fas fa-envelope"></i>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label class="label">Password</label>
-                                <div class="control has-icons-left">
-                                    <input class="input" type="text" placeholder="Password">
-                                    <span class="icon is-small is-left">
-                                            <i class="fa fa-user"></i>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <button class="button is-round" type="submit">Login</button>
-                        </form>
-                    </div>
-
-                    <br>
-
-                    <!--Signup Tile-->
-                    <div class="tile is-child box">
-                        <form>
-                            <h2 class="title">Sign-up</h2>
-                                <div class="field">
-                                    <label class="label">Username</label>
-                                        <div class="control has-icons-left">
-                                            <input class="input" type="text" placeholder="Username">
-                                            <span class="icon is-small is-left">
-                                                    <i class="fas fa-envelope"></i>
-                                            </span>
-                                        </div>
-                                </div>
-
-                                <div class="field">
-                                        <label class="label">Password</label>
-                                            <div class="control has-icons-left">
-                                                <input class="input" type="text" placeholder="Password">
-                                                <span class="icon is-small is-left">
-                                                        <i class="fas fa-envelope"></i>
-                                                </span>
-                                            </div>
-                                    </div>
-
-                                <button class="button is-round" type="submit">Sign-up</button>
-                        </form>
-                    </div>
-                    
                 </div>
+
             </div>
     </div>
 
