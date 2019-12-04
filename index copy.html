@@ -4,30 +4,25 @@
 <head>
     <title>Calendar</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="./additionalStyle.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 
+    <!-- jquery -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
 
-<!-- jquery -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="node_modules/jquery/dist/jquery.js"></script>
+
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
-    <script src="https://kit.fontawesome.com/05343d1d5e.js" crossorigin="anonymous"></script>
+
 
 </head>
 
 <body>
-    <!--Load event-->
-    <script src="event.js" type="module"></script> 
 
-    <!--Header and Navigation Menu
-    <form autocomplete="off" action="/action_page.php">
-        <div class="autocomplete" style="width:300px;">
-          <input id="myInput" type="text" name="myCountry" placeholder="Country">
-        </div>
-        <input type="submit">
-    </form>-->
-    
-    <section class="hero is-dark is-medium">
-            
+
+
+<!--Header and Navigation Menu-->
+    <section class="hero dark is-fullheight">
         <div class="hero-head">
             <nav class="navbar">
                 <div class="container">
@@ -49,36 +44,24 @@
             </nav>
         </div>
 
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">Calendar Website</h1>
-                <h2 class="subtitle">Subtitle</h2>
-                <br>
-                <div class="ui-widget"> 
-                    <H3>Search for a name</H3> 
-                    <input id="tags"placeholder="name"> 
-                </div> <br>
-                <button  class="searchEvents button is-success">Search</button>
-            </div>
-
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title has-text-white-bis">Calendar Website</h1>
+            <h2 class="subtitle has-text-white-bis">Subtitle</h2>
         </div>
-    
+        <br>
+        <div class="ui-widget"> 
+            <H3>Search for a name</H3> 
+            <input id="tags"placeholder="name"> 
+        </div> <br>
+        <button  class="searchEvents button is-success">Search</button>
+    </div>
+    </div>
+
+    <div class="hero-foot">
+    </div>
 
 
-        <div class="hero-foot">
-            <nav class="tabs">
-                <div class="container">
-                <ul>
-                    <li><a class="navbar-item is-active" id="pg1">Home</a></li>
-                    <li><a class="navbar-item" id="pg2">Page 2</a></li>
-                    <li><a class="navbar-item" id="pg3">Page 3</a></li>
-                    <li><a class="navbar-item" id=pg4>Page 4</a></li>
-                    <li><a class="navbar-item" id=pg5>Page 5</a></li>
-                    <li><a class="navbar-item" id=pg6>Page 6</a></li>
-                </ul>
-                </div>
-            </nav>
-        </div>
     </section>
 
 
@@ -91,7 +74,9 @@
                     <div class="container has-text-centered">
                         <p>We can put stuff here about the website</p>
                         <a class='button is-rounded' href="./userDashboard.html">User dashboard idea</a>
-                        
+                        <a class="button" href="login.html">Login</a>
+                        <a class="button" href="signup.html">Login</a>
+                        <a class="button" href="userDashboard.html">Login</a>
                     </div>
                 </div>
             </div>
@@ -126,5 +111,12 @@
     </div>
 
 </footer>
+
+<!--Scripts-->
+
+    <script src="https://kit.fontawesome.com/05343d1d5e.js" crossorigin="anonymous"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script type="module" src="signupHandler.js"></script>
+
 
 </body>
