@@ -18,6 +18,7 @@ $(document).ready(function(){
 
 
 async function handleSignup(user,pass){
+    console.log("it is here");
     const makeUser = await $.ajax({
         method: 'post',
         url: 'http://localhost:3000/account/create',
