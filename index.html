@@ -4,6 +4,7 @@
 <head>
     <title>Calendar</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="stylesheet" href="./additionalStyle.css">
 
 
 <!-- jquery -->
@@ -11,6 +12,8 @@
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
     <script src="https://kit.fontawesome.com/05343d1d5e.js" crossorigin="anonymous"></script>
+    <script type="module" src= "eventObjs.js" ></script>
+    <script type="module" src="eventHandler.js"></script>
 
 
 </head>
@@ -18,14 +21,6 @@
 <body>
     <!--Load event-->
     <script src="event.js" type="module"></script> 
-
-    <!--Header and Navigation Menu
-    <form autocomplete="off" action="/action_page.php">
-        <div class="autocomplete" style="width:300px;">
-          <input id="myInput" type="text" name="myCountry" placeholder="Country">
-        </div>
-        <input type="submit">
-    </form>-->
     
     <section class="hero is-dark is-medium">
             
@@ -93,6 +88,7 @@
                         <p>We can put stuff here about the website</p>
                         <a class='button is-rounded' href="./userDashboard.html">User dashboard idea</a>
                         
+                        
                     </div>
                 </div>
             </div>
@@ -100,10 +96,10 @@
 <!--Right Tile-->
             <div class="tile is-parent is-vertical">
                 <div class="containter has-text-centered">
-                        <a href="./login.html" class="button is-rounded is-large is-gradient">Login</a>
+                        <a href="./login.html" class=" is-gradient button is-rounded is-large">Login</a>
                         <br>
                         <br>
-                        <a href="./signup.html" class="button is-rounded is-large is-gradient">Signup</a>
+                        <a href="./signup.html" class=" is-gradient button is-rounded is-large">Signup</a>
                 </div>
                 <br>
 

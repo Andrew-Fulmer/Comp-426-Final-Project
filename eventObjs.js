@@ -1,5 +1,5 @@
 
-class Event{
+export class Event{
     constructor(eventName_, eventDescription_,creator_,isMine_,length_, creatorDate){
         this.eventInfo = {
             eventName: eventName_,
@@ -10,6 +10,7 @@ class Event{
             possibleDates: [creatorDate],
             currentMeetingTime: 0,
             members: [creator_],
+            
         }
 
     }
@@ -24,11 +25,11 @@ class Event{
     }
 }
 
-class eventDates{
+export class eventDates{
     constructor(username,dates){
         this.eventDateInfo = {
             user: username,
-            idealDates: dates,
+            avail: [48]
         }
     }
 }
