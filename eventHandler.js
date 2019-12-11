@@ -2,7 +2,6 @@
 
 $(document).ready(function(){
     $("#eventButton").on("click",function(){
-        console.log("flip");
         generateNewEvent(document.getElementById("eventName").value,document.getElementById("eventDes").value,document.getElementById("timeSpan").value);
     });
 

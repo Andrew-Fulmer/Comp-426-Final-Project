@@ -4,14 +4,23 @@
 $(document).ready(function(){
 
 
-    // I attempted to add email to this
-    $("#signup").on("click", function(){
-        handleSignup(document.getElementById("s-user").value,document.getElementById("s-pass").value/*,document.getElementById("s-email")*/);
-    })
 
+    $("#signup").on("click", function(e){
+        e.preventDefault();
+        handleSignup(document.getElementById("s-user").value,document.getElementById("s-pass").value/*,document.getElementById("s-email")*/));
+    });
 
-    $("#login").on("click", function(){
+    $("#login").on("click", function(e){
+        e.preventDefault();
         handleLogin(document.getElementById("l-user").value,document.getElementById("l-pass").value);       
+        
+    });
+
+
+
+    $("#pathButton").on("click",function(){
+        location="http://localhost:3001/userDashboard.html"
+    
     })
 
 });
@@ -62,8 +71,11 @@ async function handleLogin(user,pass){
             "name": user,
             "pass": pass,
         }
-    });
-    
-    
+    }).then(function(result){
+        localStorage.setItem('jwt',result.jwt);
+        console.log(localStorage.getItem('jwt'));
+        location="http://localhost:3001/userDashboard.html"
+    })
+
 
 }
