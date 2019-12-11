@@ -32,7 +32,7 @@ export const autocomplete = function() {
 
     $( "#tags" ).autocomplete({ 
       source: list1
-  
+
   /* #the tags is the id of the input element 
   source: tags is the list of available tags*/ 
     });

@@ -4,10 +4,11 @@
 $(document).ready(function(){
 
 
-
+    // I attempted to add email to this
     $("#signup").on("click", function(){
-        handleSignup(document.getElementById("s-user").value,document.getElementById("s-pass").value);
+        handleSignup(document.getElementById("s-user").value,document.getElementById("s-pass").value/*,document.getElementById("s-email")*/);
     })
+
 
     $("#login").on("click", function(){
         handleLogin(document.getElementById("l-user").value,document.getElementById("l-pass").value);       
@@ -16,8 +17,8 @@ $(document).ready(function(){
 });
 
 
-
-async function handleSignup(user,pass){
+// added email stuff in here
+async function handleSignup(user,pass/*,email*/){
     console.log("it is here");
     const makeUser = await $.ajax({
         method: 'post',
@@ -25,6 +26,7 @@ async function handleSignup(user,pass){
         "data":{
             "name": user,
             "pass": pass,
+            //"email": email,
         }
     });
 

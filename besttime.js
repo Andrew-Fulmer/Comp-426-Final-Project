@@ -66,3 +66,13 @@ function toTime(num) {
     }
     return result;
 }
+
+async function getEvents(){
+    const getEvents = await $.ajax({
+        method:'get',
+        url: 'http://localhost:3000/private/getEvents',
+    });
+
+    console.table(getEvents.result);
+    renderEvents(getEvents.result);
+}

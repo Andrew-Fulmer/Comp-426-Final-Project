@@ -1,42 +1,8 @@
 
-export class Event{
-    constructor(eventName_, eventDescription_,creator_,isMine_,length_, creatorDate){
-        this.eventInfo = {
-            eventName: eventName_,
-            eventDescription: eventDescription_,
-            creator: creator_,
-            isMine: isMine_,
-            length: length_,
-            possibleDates: [creatorDate],
-            currentMeetingTime: 0,
-            members: [creator_],
-            
-        }
-
-    }
-
-    addNewPossibleDates(eventDate,member){
-        this.eventInfo.possibleDates.push(eventDate);
-        this.eventInfo.members.push(member);
-    }
-
-    findOptimalDate(){
-
-    }
-}
-
-export class eventDates{
-    constructor(username,dates){
-        this.eventDateInfo = {
-            user: username,
-            avail: [48]
-        }
-    }
-}
 
 $(document).ready(function(){
     $("#eventButton").on("click",function(){
-        console.log("fuck");
+        console.log("flip");
         generateNewEvent(document.getElementById("eventName").value,document.getElementById("eventDes").value,document.getElementById("timeSpan").value);
     });
 
@@ -54,8 +20,9 @@ async function generateNewEvent(name,des,length){
             "eventName": name,
             "eventDescription":des,
             "creator":"test",
-            "isMine": true,
+            "isMine": false,
             "length":length,
+
 
         }
     });
@@ -67,3 +34,5 @@ async function getEvents(){
         url: 'http://localhost:3000/private/getEvents',
     })
 }
+
+

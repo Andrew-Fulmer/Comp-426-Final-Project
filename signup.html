@@ -7,11 +7,84 @@
     <link rel="stylesheet" href="./additionalStyle.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 
-
+    <style media="screen">
+        #fb-btn{margin-top:20px;}
+        #profile, #logout, #feed{display:none}
+    </style>
 
 </head>
 
 <body>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1009512299428081',
+              cookie     : true,
+              xfbml      : true,
+              version    : 'v5.0'
+            });
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+          };
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+           function statusChangeCallback(response){
+             if(response.status === 'connected'){
+               console.log('Logged in and authenticated');
+               setElements(true);
+               testAPI();
+             } else {
+               console.log('Not authenticated');
+               setElements(false);
+             }
+           }
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+                });
+            }
+           function buildProfile(user){
+            let profile = `
+            <h3>${user.name}</h3>
+            <ul class="list-group">
+                <li class="list-group-item">User ID: ${user.id}</li>
+                <li class="list-group-item">Email: ${user.email}</li>
+                <li class="list-group-item">Birthday: ${user.birthday}</li>
+                <li class="list-group-item">User ID: ${user.location.name}</li>
+            </ul>
+            `;
+            document.getElementById('profile').innerHTML = profile;
+           }
+
+           /*function setElements(isLoggedIn){
+            if(isLoggedIn){
+           // document.getElementById('logout').style.display = 'block';
+           // document.getElementById('profile').style.display = 'block';
+           // document.getElementById('feed').style.display = 'block';
+            document.getElementById('fb-btn').style.display = 'none';
+           // document.getElementById('heading').style.display = 'none';
+            } else {
+           // document.getElementById('logout').style.display = 'none';
+           // document.getElementById('profile').style.display = 'none';
+           // document.getElementById('feed').style.display = 'none';
+            document.getElementById('fb-btn').style.display = 'block';
+           // document.getElementById('heading').style.display = 'block';
+            }
+        }*/
+            function logout(){
+                FB.logout(function(response){
+                    setElements(false);
+                });
+            }
+        </script>
+
+
 
 <!--Header and Navigation Menu-->
     <section class="hero dark is-fullheight">
@@ -39,6 +112,15 @@
                             <h2 class="title has-text-white-bis">Sign up</h2>
                         <div class="box">
                             <form>
+                                    <div class="field">
+                                        <label class="label">Email</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" type="text" placeholder="Email" id="s-email">
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-email"></i>
+                                            </span>
+                                        </div>
+                                    </div>
                                     
                                     <div class="field">
                                         <label class="label">Username</label>
@@ -59,13 +141,19 @@
                                             </span>
                                         </div>
                                     </div>
-        
+                                    
                                     <button class="is-gradient button is-rounded" type="submit" id="signup" >
                                         <span class="icon is-small">
                                             <i class="fas fa-sign-in-alt"></i>
                                         </span>
                                         &nbsp Sign up
                                     </button>
+                                    
+                                    <fb:login-button
+                                        id="fb-btn"
+                                        scope="public_profile,email,user_birthday,user_location,user_posts"
+                                        onlogin="checkLoginState();">
+                                    </fb:login-button>
                                     
                                 </form>
                                 <br>
@@ -95,3 +183,4 @@
     <script type="module" src="signupHandler.js"></script>
     
     </body>
+</html>

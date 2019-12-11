@@ -57,7 +57,8 @@ async function renderEventCard(event){
                 '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
                 '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
                 '<br>'+
-                '<button class="button is-rounded" id="joinEvent-'+event.id+'">Join Event</button>'+
+                '<button class="button is-rounded is-danger" id="deleteEvent-'+event.id+'">Delete Event</button> '+
+                
             '</div>'+
         '</article>'
         );
