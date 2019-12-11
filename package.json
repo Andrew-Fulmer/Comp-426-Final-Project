@@ -8,7 +8,8 @@
     "browser-sync": "^2.26.7",
     "bulma": "^0.8.0",
     "bulma-calendar": "^6.0.7",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "node": "^13.3.0"
   },
   "devDependencies": {},
   "scripts": {

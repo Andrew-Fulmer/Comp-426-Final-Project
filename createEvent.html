@@ -56,11 +56,8 @@
                                 </div>
                             </div>
                         </div>
-
-
                 </div>
                 
-
             </nav>
         </div>
     </header>
@@ -133,27 +130,30 @@
                             <div class="field">
                                 <label class="lable">Event Name</label>
                                 <div class="control">
-                                    <input type="text">
+                                    <input type="text" id="eventName">
                                 </div>
                             </div>
 
                             <div class="field">
                                     <label class="lable">Event Description</label>
                                     <div class="control">
-                                        <input type="text">
+                                        <input type="text" id="eventDes">
                                     </div>
                             </div>
 
                             
                             <div class="field">
-                                    <label class="lable">Public or Private (will be radio button)</label>
+                                    <label class="lable">Time Span</label>
                                     <div class="control">
-                                        <input type="text">
+                                        <input type="text" id="timeSpan">
                                     </div>
                             </div>
-
-                            <p>Possibly put in a calendar where the person can give the dates that they are free to do said event</p>
+                            
                         </form>
+                        <br>
+                        <button id="eventButton">Create Event</button>
+                        <button id="getEvents">Get All Events</button>
+                        
                     </div>
 
 
@@ -164,5 +164,6 @@
 
     <!--Scripts-->
     <script src="https://kit.fontawesome.com/05343d1d5e.js" crossorigin="anonymous"></script>
+    <script type="module" src="eventHandler.js"></script>
         
 </body>
