@@ -61,10 +61,255 @@ async function renderEventCard(event){
         '</div>'+
     '</article>'
     );
+
+    let form = $(
+        `<div class="modal" id="modalPopup">
+            <div class="modal-background closeP"></div>
+            <div class="modal-close closeP"id="closePopup"></div>
+            <div class="modal-content">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">Time Available</p>
+                                <p class="subtitle is-6">Mark each interval you're available</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            This is the description of John Smith. <br>
+                            <div class="columns">
+                                <div class="column">   
+                                    Overnight<br>                        
+                                    <label class="checkbox"id="cb00">
+                                        <input type="checkbox">
+                                        12:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb01">
+                                        <input type="checkbox">
+                                        12:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb02">
+                                        <input type="checkbox">
+                                        1:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb03">
+                                        <input type="checkbox">
+                                        1:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb04">
+                                        <input type="checkbox">
+                                        2:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb05">
+                                        <input type="checkbox">
+                                        2:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb06">
+                                        <input type="checkbox">
+                                        3:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb07">
+                                        <input type="checkbox">
+                                        3:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb08">
+                                        <input type="checkbox">
+                                        4:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb09">
+                                        <input type="checkbox">
+                                        4:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb10">
+                                        <input type="checkbox">
+                                        5:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb11">
+                                        <input type="checkbox">
+                                        5:30 am
+                                    </label><br>
+                                </div>
+                                <div class="column">
+                                    Morning <br>
+                                    <label class="checkbox"id="cb12">
+                                        <input type="checkbox">
+                                        6:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb13">
+                                        <input type="checkbox">
+                                        6:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb14">
+                                        <input type="checkbox">
+                                        7:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb15">
+                                        <input type="checkbox">
+                                        7:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb16">
+                                        <input type="checkbox">
+                                        8:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb17">
+                                        <input type="checkbox">
+                                        8:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb18">
+                                        <input type="checkbox">
+                                        9:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb19">
+                                        <input type="checkbox">
+                                        9:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb20">
+                                        <input type="checkbox">
+                                        10:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb21">
+                                        <input type="checkbox">
+                                        10:30 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb22">
+                                        <input type="checkbox">
+                                        11:00 am
+                                    </label><br>
+                                    <label class="checkbox"id="cb23">
+                                        <input type="checkbox">
+                                        11:30 am
+                                    </label><br>
+                                </div>
+                                <div class="column">
+                                    Afternoon <br>
+                                    <label class="checkbox"id="cb24">
+                                        <input type="checkbox">
+                                        12:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb25">
+                                        <input type="checkbox">
+                                        12:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb26">
+                                        <input type="checkbox">
+                                        1:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb27">
+                                        <input type="checkbox">
+                                        1:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb28">
+                                        <input type="checkbox">
+                                        2:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb29">
+                                        <input type="checkbox">
+                                        2:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb30">
+                                        <input type="checkbox">
+                                        3:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb31">
+                                        <input type="checkbox">
+                                        3:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb32">
+                                        <input type="checkbox">
+                                        4:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb33">
+                                        <input type="checkbox">
+                                        4:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb34">
+                                        <input type="checkbox">
+                                        5:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb35">
+                                        <input type="checkbox">
+                                        5:30 pm
+                                    </label><br>  
+                                </div>
+                                <div class="column">
+                                    Evening <br>
+                                    <label class="checkbox"id="cb36">
+                                        <input type="checkbox">
+                                        6:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb37">
+                                        <input type="checkbox">
+                                        6:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb38">
+                                        <input type="checkbox">
+                                        7:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb39">
+                                        <input type="checkbox">
+                                        7:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb40">
+                                        <input type="checkbox">
+                                        8:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb41">
+                                        <input type="checkbox">
+                                        8:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb42">
+                                        <input type="checkbox">
+                                        9:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb43">
+                                        <input type="checkbox">
+                                        9:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb44">
+                                        <input type="checkbox">
+                                        10:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb45">
+                                        <input type="checkbox">
+                                        10:30 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb46">
+                                        <input type="checkbox">
+                                        11:00 pm
+                                    </label><br>
+                                    <label class="checkbox"id="cb47">
+                                        <input type="checkbox">
+                                        11:30 pm
+                                    </label><br>
+                                </div>
+                            </div>
+                            <button class="button is-success"> Submit </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>`
+    );
+    
+
+    
     $("#eventShow").append(card);
+    $("#formpopup").append(form);
+    
+    // open modal
     $("#joinEvent-"+event.id+"").on("click",function(){
-        addToGroup(event.id);
+        // This will render the form, then call addToGroup with the new values
+        modalFormOn(event);
+        //addToGroup(event.id);
+        // make this pop up a modal, then eventually when you click on that modal it adds to group
     })
+    $(".closeP").on("click", function(){
+        modalFormOff(event);
+    })
+    // close modal?
+
+
     $("#editEvent-"+event.id+"").on("click",function(){
         console.log("yes");
         $("#joinEvent-"+event.id+"").attr("disabled", true)
@@ -112,6 +357,18 @@ async function renderEventCard(event){
 
 
 }
+
+//renderModalForm to modalFormOn
+async function modalFormOn(event) {
+    console.log('attempting to render modal form');
+    $("#modalPopup").addClass("is-active");
+}
+async function modalFormOff(event) {
+    console.log('attempting to turn modal off');
+    $("#modalPopup").removeClass("is-active");
+}
+
+
 
 async function submitChanges(id){
     const submitEventChanges = await $.ajax({
