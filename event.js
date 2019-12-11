@@ -1,14 +1,15 @@
 $( function() { 
   renderSite();
+  
 } );
 export const renderSite = function() {
-  const $root = $('#root');
+  //const $root = $('#root');
   autocomplete();
 }
 export const loadAutocomplete = function() {
-  const $root = $('root');
+  //const $root = $('root');
   console.log("autocompleting");
-  $root.on()
+  //$root.on()
 }
 export const autocomplete = function() {
 
@@ -34,5 +35,5 @@ export const autocomplete = function() {
   
   /* #the tags is the id of the input element 
   source: tags is the list of available tags*/ 
-    }); 
+    });
 }

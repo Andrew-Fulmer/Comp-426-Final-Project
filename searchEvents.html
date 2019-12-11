@@ -7,25 +7,33 @@
     <link rel="stylesheet" href="./additionalStyle.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 
-
+    <!-- Autofill needed links -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">   
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    
 </head>
 
 <body>
+    <!-- Is supposed to load event...-->
+    <script src="event.js" type="module"></script> 
+    <script>
+            $( "<b></b>" ).html( $( ":root" )[ 0 ].nodeName ).appendTo( "#log" );
+            </script>
 
     <!--Top Bar-->
     <header class="hero dark">
         <div class="hero-head">
             <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
-                        <a class="navbar-item y has-text-white-bis">Something here</a>
-                        <a class="navbar-item is-tab-is-hidden-mobile is-active has-text-white-bis">
+                        <a class="navbar-item y has-text-white-bis">Meetup 101</a>
+                        <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis">
                             <span class="icon is-small ic">
                                 <i class="fas fa-home"></i>
                             </span>
                             Home</a>
                         <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis ">About</a>
-                        <a class="navbar-item is-tab-is-hidden-mobile is-active has-text-white-bis">Github</a>
-                        <a class="navbar-item is-tab-is-hidden-mobile is-active has-text-white-bis">Tab 4</a>
+                        <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis">Github</a>
+                        <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis">Tab 4</a>
                 </div>
 
                 <div class="navbar-menu navbar-end">
@@ -73,7 +81,7 @@
                     <p class="menu-label  has-text-white-bis nav-titles">General</p>
                     <ul class="menu-list ">
                         <li class=" has-text-white-bis">
-                            <a href="userDashboard.html" class="has-text-white-bis">
+                            <a href="userDashboard.html" class="has-text-grey">
                                 <span class="icon is-small">
                                     <i class="fas fa-book-open"></i>
                                 </span>
@@ -84,7 +92,7 @@
                     <p class="menu-label  has-text-white-bis nav-titles">Events</p>
                     <ul class="menu-list">
                         <li>
-                            <a href="yourEvents.html" class="has-text-white-bis">
+                            <a href="yourEvents.html" class="has-text-grey">
                                 <span class="icon is-small">
                                     <i class="far fa-bookmark"></i>  
                                 </span>
@@ -92,7 +100,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="createEvent.html" class="has-text-white-bis">
+                            <a href="createEvent.html" class="has-text-grey">
                                 <span class="icon is-small">
                                     <i class="far fa-calendar-plus"></i>
                                 </span>
@@ -100,7 +108,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="searchEvents.html" class="has-text-white-bis">
+                            <a href="searchEvents.html" class="has-text-grey">
                                 <span class="icon is-small">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -113,6 +121,7 @@
             </aside>
             <!--Navigation Bar-->
             <main class="column main">
+                
                 <nav class="breadcrumb is-small current-page-nav" aria-label="breadcrumbs">
                     <ul>
                         <li>
@@ -127,6 +136,14 @@
                     </ul>
                 </nav>
 
+                <class="has-text-centered">
+                    <div class="ui-widget has-text-white-bis"> 
+                        <H3>Search for an event</H3> 
+                        <input id="tags"placeholder="Event name"> 
+                    </div> <br>
+                    <button  class="searchEvents button is-success">Search</button> <br><br>
+                </class>
+
                 <!--Main Page Info Goes Here-->
                     <div class="box">
                         <div class="container has-text-centered">
@@ -137,6 +154,7 @@
 
                         </div>
                     </div>
+
 
 
             </main>
