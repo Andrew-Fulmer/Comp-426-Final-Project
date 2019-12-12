@@ -19,7 +19,7 @@
 
 <body>
     <!-- Is supposed to load event...-->
-    <script src="event.js" type="module"></script> 
+    <!--script src="event.js" type="module"></script--> 
     <script>
             $( "<b></b>" ).html( $( ":root" )[ 0 ].nodeName ).appendTo( "#log" );
             </script>
@@ -36,7 +36,7 @@
                             </span>
                             Home</a>
                         <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis ">About</a>
-                        <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis">Github</a>
+                        <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis" target="_blank" href="https://github.com/Andrew-Fulmer/Comp-426-Final-Project">Github</a>
                         <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis">Tab 4</a>
                 </div>
 
@@ -82,7 +82,7 @@
         <div class="columns">
             <aside class="column is-2 aside dark has-text-white-bis">
                 <nav class="menu">
-                    <p class="menu-label  has-text-white-bis nav-titles">General</p>
+                    <!--p class="menu-label  has-text-white-bis nav-titles">General</p>
                     <ul class="menu-list ">
                         <li class=" has-text-white-bis">
                             <a href="userDashboard.html" class="has-text-grey">
@@ -92,7 +92,7 @@
                             Dashboard
                             </a>
                         </li>
-                    </ul>
+                    </ul-->
                     <p class="menu-label  has-text-white-bis nav-titles">Events</p>
                     <ul class="menu-list">
                         <li>
@@ -140,13 +140,18 @@
                     </ul>
                 </nav>
 
-                <class="has-text-centered">
-                    <div class="ui-widget has-text-white-bis"> 
-                        <H3>Search for an event</H3> 
-                        <input id="tags"placeholder="Event name"> 
-                    </div> <br>
-                    <button  class="searchEvents button is-success">Search</button> <br><br>
-                </class>
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <class="has-text-centered">
+                            <div class="ui-widget has-text-white-bis"> 
+                                <H3>Search for an event</H3> 
+                                <input id="tags"class="input" type="text" placeholder="Event name">
+                                <!--input id="tags"placeholder="Event name"--> 
+                            </div> <br>
+                            <button  class="searchEvents button is-success selectEvent" id="selectEvent">Search</button> <br><br>
+                        </class>
+                    </div>
+                </div>
 
                 <!--Main Page Info Goes Here-->
                 <div class="box">
@@ -156,6 +161,9 @@
                         <div class="formpopup" id="formpopup">
                               
                         </div>
+                        <div class="eventpopup" id="eventpopup">
+
+                        </div>
                         <!--<div class="modal">
                             <div class="modal-backgroung"></div>
                             <div class="modal-content">
@@ -163,8 +171,6 @@
                             </div>
                         </div>-->
                         <div class="column is-4 is-offset-4" id="eventShow">
-                            
-
                         </div>
 
                     </div>
@@ -179,6 +185,5 @@
     <!--Scripts-->
     <script src="https://kit.fontawesome.com/05343d1d5e.js" crossorigin="anonymous"></script>
     <script src="searchEventRenderer.js"></script>
-        
 </body>
 </html>

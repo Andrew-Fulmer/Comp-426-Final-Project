@@ -17,7 +17,7 @@ export class Event{
 
     addNewPossibleDates(eventDate,member){
         this.eventInfo.possibleDates.push(eventDate);
-        this.eventInfo.members.push(member);
+        this.eventInfo.members.push(' ' + member);
     }
 
     findOptimalDate(){

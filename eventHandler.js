@@ -1,8 +1,38 @@
-
-
 $(document).ready(function(){
+
+
     $("#eventButton").on("click",function(){
-        generateNewEvent(document.getElementById("eventName").value,document.getElementById("eventDes").value,document.getElementById("timeSpan").value);
+        var message="";
+        var failed = false;
+        var acceptable = false;
+        if (document.getElementById("eventName").value == ""){
+            console.log('There is no event name');
+            message+= 'Please add an event name \n';
+            var failed = true;
+            //alert('Please add an event name');
+        }
+        if (document.getElementById("timeSpan").value == "") {
+            console.log('There is no time span');
+            message+= 'Please add a time span \n';
+            var failed = true;
+        }
+        if (document.getElementById("eventDes").value == "") {
+            console.log('There is no description');
+            message+= `You're missing a description but can still submit \n`;
+            var acceptable = true;
+        }
+        if (failed) {
+            alert(message);
+        }
+        else if (acceptable) {
+            alert(message);
+        }
+        else {
+            console.log('successfully added event');
+            generateNewEvent(document.getElementById("eventName").value,document.getElementById("eventDes").value,document.getElementById("timeSpan").value,document.getElementById("datePicker").value);
+            console.log('999'+ document.getElementById("datePicker").value);
+            // maybe add a popup saying you successfully added event -> could have this just add is-active
+        }
     });
 
     $("#getEvents").on("click",function(){
@@ -15,7 +45,8 @@ $(document).ready(function(){
         minYear: 2019,
         maxYear: 2025,/*parseInt(moment().format('YYYY'),10)*/
     }, function(start, end, label) {
-        var pops = moment().format('MM/D/YYYY', start);
+        var pops = moment().format('MM/DD/YYYY', start);
+        moment().format()
         //console.log(pops);
         //var years = moment().diff(start, 'years');
         console.log('pops = ' + pops);
@@ -25,7 +56,14 @@ $(document).ready(function(){
     
 });
 
-async function generateNewEvent(name,des,length){
+/*async function searchForDuplicates(event) {
+    for (let i=0; i<getEvents.length; i++) {
+        console.log(i);
+    };
+}*/
+
+// ADDED DATE HERE
+async function generateNewEvent(name,des,length,date){
     console.table(event);
     const makeEvent = await $.ajax({
         method: 'post',
@@ -36,7 +74,7 @@ async function generateNewEvent(name,des,length){
             "creator":"test",
             "isMine": false,
             "length":length,
-
+            
 
         }
     });
@@ -85,17 +123,17 @@ async function showWeather(){
             if (day==6) var today = 'Saturday';
 
             var pt = "";
-            pt += "<h2>" +data.city.name + "</h2>";
+            pt += `<h1 class="title">` +data.city.name + "</h1>";
 
             for (let i=0; i<10; i++) {
                 pt += "<p>";
-                if (i==0) pt+= `<b class="has-text-grey">Today </b>: `;
-                else if (i==1) pt+= `<b class="has-text-grey">Tomorrow </b>: `;
+                if (i==0) pt+= `<b class="has-text-grey">Today</b>: `;
+                else if (i==1) pt+= `<b class="has-text-grey">Tomorrow</b>: `;
                 else if (i<7) {
-                    pt+= `<b class="has-text-grey">` + arrDays[day+i] + " </b>:";
+                    pt+= `<b class="has-text-grey">` + arrDays[day+i] + "</b>: ";
                 }
                 else {
-                    pt+= `<b class="has-text-grey">Next ` + arrDays[day+i] + " </b>:"
+                    pt+= `<b class="has-text-grey">Next ` + arrDays[day+i] + "</b>: "
                 }
                 pt+= data.list[i].main.temp + "&degF" //temp
             }

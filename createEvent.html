@@ -34,7 +34,7 @@
                             </span>
                             Home</a>
                         <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis ">About</a>
-                        <a class="navbar-item is-tab-is-hidden-mobile  has-text-white-bis">Github</a>
+                        <a class="navbar-item is-tab-is-hidden-mobile  has-text-white-bis"target="_blank" href="https://github.com/Andrew-Fulmer/Comp-426-Final-Project">Github</a>
                         <a class="navbar-item is-tab-is-hidden-mobile has-text-white-bis">Tab 4</a>
                 </div>
 
@@ -77,9 +77,9 @@
         <div class="columns">
             <aside class="column is-2 aside dark has-text-white-bis">
                 <nav class="menu">
-                    <p class="menu-label  has-text-white-bis nav-titles">General</p>
+                    <!--p class="menu-label  has-text-white-bis nav-titles">General</p>
                     <ul class="menu-list ">
-                        <li class=" has-text-white-bis">                                    <!-- is this line necessary? What is it changing? -->
+                        <li class=" has-text-white-bis">                                   
                             <a href="userDashboard.html" class="has-text-grey">
                                 <span class="icon is-small">
                                     <i class="fas fa-book-open"></i>
@@ -87,7 +87,7 @@
                             Dashboard
                             </a>
                         </li>
-                    </ul>
+                    </ul-->
                     <p class="menu-label  has-text-white-bis nav-titles">Events</p>
                     <ul class="menu-list">
                         <li>
@@ -137,8 +137,7 @@
                     <div class="column is-one-third">
                     <!--Main Page Info Goes Here-->
                         <div class="box">
-                            <div class="columns">
-                            <div class="column">
+                            
                                     <form>
                                         <div class="field">
                                             <label class="lable">Event Name</label>
@@ -168,29 +167,22 @@
                                         
 
                                         <!-- Couldn't get this working, I think bulma calendar isn't importing correctly -->
-                                        <div class="field">
+                                        <div class="field"></div>
                                             <label class="lable">Date</label>
                                             <div class="control">
-                                                <input type="text" name="birthday" value="12/12/2019" />
+                                                <input type="text" name="birthday" value="12/12/2019" id="datePicker">
                                                 <!--input type="date" data-display-mode="inline"-->
                                             </div>
                                         </div>
+                                        <button id="eventButton" class="button is-success">Create Event</button>
+                                        <button id="getEvents"class="button is-info">Get All Events</button>
                                         
                                     </form>
                                 </div>
-                                <div class="column">
-                                    
-                                </div>
-                            </div>
+                                
+                                <div class="column is-one-third">
+                                        <div class="box" id="showWeather">
                             <br>
-                            <button id="eventButton" class="button is-success">Create Event</button>
-                            <button id="getEvents"class="button is-info">Get All Events</button>
-                            
-                        </div>
-                    </div>
-                    <div class="column is-one-third">
-                        <div class="box" id="showWeather">
-
                         </div>
                     </div>
                     <!--div class="column has-text-white-bis" id="showWeather">

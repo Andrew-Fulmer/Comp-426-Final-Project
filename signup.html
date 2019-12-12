@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="./additionalStyle.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 
-    <style media="screen">
+    <!--style media="screen">
         #fb-btn{margin-top:20px;}
         #profile, #logout, #feed{display:none}
-    </style>
+    </style-->
 
 </head>
 
 <body>
     <script>
-        window.fbAsyncInit = function() {
+        /*window.fbAsyncInit = function() {
             FB.init({
               appId      : '1009512299428081',
               cookie     : true,
@@ -77,11 +77,11 @@
            // document.getElementById('heading').style.display = 'block';
             }
         }*/
-            function logout(){
+            /*function logout(){
                 FB.logout(function(response){
                     setElements(false);
                 });
-            }
+            }*/
         </script>
 
 
@@ -149,11 +149,11 @@
                                         &nbsp Sign up
                                     </button>
                                     
-                                    <fb:login-button
+                                    <!--fb:login-button
                                         id="fb-btn"
                                         scope="public_profile,email,user_birthday,user_location,user_posts"
                                         onlogin="checkLoginState();">
-                                    </fb:login-button>
+                                    </fb:login-button-->
                                     
                                 </form>
                                 <br>

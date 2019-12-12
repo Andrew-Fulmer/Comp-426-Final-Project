@@ -1,20 +1,77 @@
 $(document).ready(function(){
-    renderSite();
+    autocomplete();
     getEvents();
     
     $(".selectEvent").on("click", function(id){   // Might need to make id name
         console.log("you clicked search button");
         searchButton();
+        modalViewEventOn();
     });
+    /*$("#closePopup12").on("click", function(){
+        console.log("you clicked to close");
+        modalViewEventOff();
+    });*/
 
 });
 
 var eventList = [];
+var idList = [];
 
 
 async function searchButton(){
-    
 
+    $("#closePopup12").on("click", function(){
+        console.log("you clicked to close");
+        modalViewEventOff();
+    });
+
+
+    var input = document.getElementById("tags").value;
+    console.log(input);
+    var event = 0;
+    let eventPop;
+    
+    
+    eventPop+=    `<div class="modal" id="modalEventPopup">
+                        <div class="modal-background closeP"id="closeSelectP"></div>
+                        <div class="modal-close closeP"id="closePopup12"></div>
+                        <div class="modal-content">
+                            <div class="card">
+                                <div class="card-content">`+
+                                    '<article class="media box" id="event-'+event.id+'">'+
+                                        '<div class="media-left">'+
+                                        '</div>'+
+                                        '<div class="media-content">'+
+                                            '<h1 class="title" id="name-'+event.id+'">'+event.eventName+'</h1>'+
+                                            '<h2 class="subtitle">Your Event</h2>'+
+                                            '<p id="des-'+event.id+'">Event Description:'+event.eventDescription+'</p>'+
+                                            '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
+                                            '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
+                                            '<br>'+
+                                            // Do we need the join event button? or should you already be in it?
+                                            '<button class="button is-rounded is-info" id="joinEvent-'+event.id+'">Join Event</button>'+
+                                            '<button class="button is-rounded is-warning" id="editEvent-'+event.id+'">Edit Event</button>'+
+                                            '<button class="button is-rounded is-danger" id="deleteEvent-'+event.id+'">Delete Event</button>' +
+                                            '<div id="edit-'+event.id+'"></div>'+
+                                        '</div>'+
+                                    '</article>'+`
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    `;
+    $("#eventpopup").append(eventPop);
+
+
+}
+
+async function modalViewEventOn() {
+    $("#modalEventPopup").addClass("is-active");
+}
+
+async function modalViewEventOff() {
+    console.log('attempting to close modalViewEvent');
+    $("#modalEventPopup").removeClass("is-active");
 }
 
 async function getEvents(){
@@ -63,7 +120,10 @@ async function removeFromGroup(id) {
 async function renderEventCard(event){
     var arrMem = event.members;
     eventList.push(event.eventName);
+    idList.push(event.id);
+    console.log(event.id);
     console.log(eventList);
+    console.log('id list' + idList);
     console.log('Members: '+arrMem[0]);
     //console.log('about to render');
     let card;
@@ -73,8 +133,8 @@ async function renderEventCard(event){
             '<div class="media-left">'+
             '</div>'+
             '<div class="media-content">'+
-                '<p>Your Event</p>'+
-                '<p id="name-'+event.id+'">Event Name:'+event.eventName+'</p>'+
+                '<h1 class="title" id="name-'+event.id+'">'+event.eventName+'</h1>'+
+                '<h2 class="subtitle">Your Event</h2>'+
                 '<p id="des-'+event.id+'">Event Description:'+event.eventDescription+'</p>'+
                 '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
                 '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
@@ -94,7 +154,7 @@ async function renderEventCard(event){
             '<div class="media-left">'+
             '</div>'+
             '<div class="media-content">'+
-                '<p id="name-'+event.id+'">Event Name:'+event.eventName+'</p>'+
+                '<h1 class="title" id="name-'+event.id+'">'+event.eventName+'</h1>'+
                 '<p id="des-'+event.id+'">Event Description:'+event.eventDescription+'</p>'+
                 '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
                 '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
@@ -129,205 +189,205 @@ async function renderEventCard(event){
                             <div class="columns">
                                 <div class="column">   
                                     Overnight<br>    
-                                    <label class="checkbox"id="cb00">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb0" type="checkbox">
                                         12:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb01">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb1" type="checkbox">
                                         12:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb02">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb2" type="checkbox">
                                         1:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb03">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb3" type="checkbox">
                                         1:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb04">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb4" type="checkbox">
                                         2:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb05">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb5" type="checkbox">
                                         2:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb06">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb6" type="checkbox">
                                         3:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb07">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb7" type="checkbox">
                                         3:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb08">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb8" type="checkbox">
                                         4:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb09">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb9" type="checkbox">
                                         4:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb10">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb10" type="checkbox">
                                         5:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb11">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb11" type="checkbox">
                                         5:30 am
                                     </label><br>
                                 </div>
                                 <div class="column">
                                     Morning <br>
-                                    <label class="checkbox"id="cb12">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb12" type="checkbox">
                                         6:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb13">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb13" type="checkbox">
                                         6:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb14">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb14" type="checkbox">
                                         7:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb15">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb15" type="checkbox">
                                         7:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb16">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb16" type="checkbox">
                                         8:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb17">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb17" type="checkbox">
                                         8:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb18">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb18" type="checkbox">
                                         9:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb19">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb19" type="checkbox">
                                         9:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb20">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb20" type="checkbox">
                                         10:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb21">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb21" type="checkbox">
                                         10:30 am
                                     </label><br>
-                                    <label class="checkbox"id="cb22">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb22" type="checkbox">
                                         11:00 am
                                     </label><br>
-                                    <label class="checkbox"id="cb23">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb23" type="checkbox">
                                         11:30 am
                                     </label><br>
                                 </div>
                                 <div class="column">
                                     Afternoon <br>
-                                    <label class="checkbox"id="cb24">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb24" type="checkbox">
                                         12:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb25">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb25" type="checkbox">
                                         12:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb26">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb26" type="checkbox">
                                         1:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb27">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb27" type="checkbox">
                                         1:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb28">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb28"  type="checkbox">
                                         2:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb29">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb29" type="checkbox">
                                         2:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb30">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb30"  type="checkbox">
                                         3:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb31">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb31" type="checkbox">
                                         3:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb32">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb32"  type="checkbox">
                                         4:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb33">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb33" type="checkbox">
                                         4:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb34">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb34" type="checkbox">
                                         5:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb35">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb35" type="checkbox">
                                         5:30 pm
                                     </label><br>  
                                 </div>
                                 <div class="column">
                                     Evening <br>
-                                    <label class="checkbox"id="cb36">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb36" type="checkbox">
                                         6:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb37">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb37" type="checkbox">
                                         6:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb38">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb38" type="checkbox">
                                         7:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb39">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb39"  type="checkbox">
                                         7:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb40">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb40" type="checkbox">
                                         8:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb41">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb41" type="checkbox">
                                         8:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb42">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb42" type="checkbox">
                                         9:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb43">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb43"  type="checkbox">
                                         9:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb44">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb44" type="checkbox">
                                         10:00 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb45">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb45" type="checkbox">
                                         10:30 pm
                                     </label><br>
-                                    <label class="checkbox"id="cb46">
-                                        <input type="checkbox">
+                                    <label class="checkbox">
+                                        <input id="cb46" type="checkbox">
                                         11:00 pm
                                     </label><br>
                                     <label class="checkbox"id="cb47">
-                                        <input type="checkbox">
+                                        <input id="cb47" type="checkbox">
                                         11:30 pm
                                     </label><br>
                                 </div>
@@ -459,37 +519,14 @@ async function renderSite(){
     //const $root = $('#root');
     autocomplete();
   }
-async function loadAutocomplete(){
-    //const $root = $('root');
-    console.log("autocompleting");
-    //$root.on()
-  }
+
 async function autocomplete(){
-    var list1 = [];
-
-
-//      var list1 = [];
-      var tag1 = {
-        name: "Andrew",
-        location: "india"
-      }
-      var tag2 = {
-        name: "Taylor",
-        location: "usa"
-      }
-      var tag3 = {
-        name: "Caroline",
-        location: "china"
-      }
-      list1.push(tag1.name);
-      list1.push(tag2.name);
-      list1.push(tag3.name);
-  
-      $( "#tags" ).autocomplete({ 
+    $( "#tags" ).autocomplete({ 
         source: eventList
+        //source: idList
   
     /* #the tags is the id of the input element 
     source: tags is the list of available tags*/ 
-      });
-  }
+    });
+}
   

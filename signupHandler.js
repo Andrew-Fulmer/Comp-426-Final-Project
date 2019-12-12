@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     $("#signup").on("click", function(e){
         e.preventDefault();
-        handleSignup(document.getElementById("s-user").value,document.getElementById("s-pass").value/*,document.getElementById("s-email")*/));
+        handleSignup(document.getElementById("s-user").value,document.getElementById("s-pass").value/*,document.getElementById("s-email")*/);
     });
 
     $("#login").on("click", function(e){
@@ -38,7 +38,6 @@ async function handleSignup(user,pass/*,email*/){
             //"email": email,
         }
     });
-
 }
 
 /**
