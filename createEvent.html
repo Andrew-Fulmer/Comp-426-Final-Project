@@ -5,13 +5,18 @@
     <title>Dashboard</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+    <!--link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet"-->
     <link rel="stylesheet" href="./additionalStyle.css">
-    <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+    <!--link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet"-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 
     <!-- Calendar -->
-    <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
+    <!--script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script-->
+
+    <!-- For Calendar from http://www.daterangepicker.com/ -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 </head>
 
@@ -90,7 +95,7 @@
                                 <span class="icon is-small">
                                     <i class="far fa-bookmark"></i>  
                                 </span>
-                            Your Events
+                                Your Events
                             </a>
                         </li>
                         <li>
@@ -128,50 +133,70 @@
                         </li>
                     </ul>
                 </nav>
+                <div class="columns">
+                    <div class="column is-one-third">
+                    <!--Main Page Info Goes Here-->
+                        <div class="box">
+                            <div class="columns">
+                            <div class="column">
+                                    <form>
+                                        <div class="field">
+                                            <label class="lable">Event Name</label>
+                                            <div class="control">
+                                                <input class="input" id="eventName" type="text" placeholder="Practice">
+                                                <!--input type="text" id="eventName"placeholder="Practice"-->
+                                            </div>
+                                        </div>
 
-                <!--Main Page Info Goes Here-->
-                    <div class="box">
-                        <form>
-                            <div class="field">
-                                <label class="lable">Event Name</label>
-                                <div class="control">
-                                    <input type="text" id="eventName"placeholder="Practice">
+                                        <div class="field">
+                                            <label class="lable">Event Description</label>
+                                            <div class="control">
+                                                <textarea class="textarea" id="eventDes" placeholder="Practice makes perfect"></textarea>
+                                                <!--input type="text" id="eventDes" placeholder="Practice makes perfect"-->
+                                            </div>
+                                        </div>
+
+                                        
+                                        <div class="field">
+                                            <label class="lable">Time Span</label>
+                                            <div class="control">
+                                                <input class="input" id="timeSpan" type="text" placeholder="2 hours">
+                                                <!--input type="text" id="timeSpan"-->
+                                            </div>
+                                        </div>
+                                        
+                                        
+
+                                        <!-- Couldn't get this working, I think bulma calendar isn't importing correctly -->
+                                        <div class="field">
+                                            <label class="lable">Date</label>
+                                            <div class="control">
+                                                <input type="text" name="birthday" value="12/12/2019" />
+                                                <!--input type="date" data-display-mode="inline"-->
+                                            </div>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                <div class="column">
+                                    
                                 </div>
                             </div>
-
-                            <div class="field">
-                                    <label class="lable">Event Description</label>
-                                    <div class="control">
-                                        <input type="text" id="eventDes" placeholder="Practice makes perfect">
-                                    </div>
-                            </div>
-
+                            <br>
+                            <button id="eventButton" class="button is-success">Create Event</button>
+                            <button id="getEvents"class="button is-info">Get All Events</button>
                             
-                            <div class="field">
-                                    <label class="lable">Time Span</label>
-                                    <div class="control">
-                                        <input type="text" id="timeSpan">
-                                    </div>
-                            </div>
-                            
-                            <div class="calendar">
-
-                            </div>
-
-                            <!-- Couldn't get this working, I think bulma calendar isn't importing correctly -->
-                            <div class="field">
-                                <label class="label">Date</label>
-                                <div class="control">
-                                    <input type="date" data-display-mode="inline">
-                                </div>
-                            </div>
-                            
-                        </form>
-                        <br>
-                        <button id="eventButton" class="button is-success">Create Event</button>
-                        <button id="getEvents"class="button is-info">Get All Events</button>
-                        
+                        </div>
                     </div>
+                    <div class="column is-one-third">
+                        <div class="box" id="showWeather">
+
+                        </div>
+                    </div>
+                    <!--div class="column has-text-white-bis" id="showWeather">
+                        <!--button id="showWeather" class="button is-warning">Show Upcoming Weather</button-->
+                    <!--/div-->
+                </div>
 
 
             </main>
@@ -181,13 +206,13 @@
 
     <!--Scripts-->
     <!-- this one is a repeat -->
-   
+</body>
 
     <script src="https://kit.fontawesome.com/05343d1d5e.js" crossorigin="anonymous"></script>
     
     <script type="module" src="eventHandler.js"></script>
-    
-    <script src="eventHandler.js"></script>
-    <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
+
+    <!--script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script-->
         
-</body>
+
+</html>

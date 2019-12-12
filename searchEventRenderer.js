@@ -45,22 +45,44 @@ async function removeFromGroup(id) {
 
 async function renderEventCard(event){
     console.log('about to render');
-    let card =$(
-        '<article class="media box" id="event-'+event.id+'">'+
-        '<div class="media-left">'+
-        '</div>'+
-        '<div class="media-content">'+
-            '<p id="name-'+event.id+'">Event Name:'+event.eventName+'</p>'+
-            '<p id="des-'+event.id+'">Event Description:'+event.eventDescription+'</p>'+
-            '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
-            '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
-            '<br>'+
-            '<button class="button is-rounded is-info" id="joinEvent-'+event.id+'">Join Event</button>'+
-            '<button class="button is-rounded is-warning" id="editEvent-'+event.id+'">Edit Event</button>'+
-            '<div id="edit-'+event.id+'"></div>'+
-        '</div>'+
-    '</article>'
-    );
+    let card;
+    if (event.isMine == "true") {
+        card =$(
+            '<article class="media box" id="event-'+event.id+'">'+
+            '<div class="media-left">'+
+            '</div>'+
+            '<div class="media-content">'+
+                '<p id="name-'+event.id+'">Event Name:'+event.eventName+'</p>'+
+                '<p id="des-'+event.id+'">Event Description:'+event.eventDescription+'</p>'+
+                '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
+                '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
+                '<br>'+
+                '<button class="button is-rounded is-info" id="joinEvent-'+event.id+'">Join Event</button>'+
+                '<button class="button is-rounded is-warning" id="editEvent-'+event.id+'">Edit Event</button>'+
+                '<button class="button is-rounded is-danger" id="deleteEvent-'+event.id+'">Delete Event</button>' +
+                '<div id="edit-'+event.id+'"></div>'+
+            '</div>'+
+        '</article>'
+        );
+    }
+    else {
+        card =$(
+            '<article class="media box" id="event-'+event.id+'">'+
+            '<div class="media-left">'+
+            '</div>'+
+            '<div class="media-content">'+
+                '<p id="name-'+event.id+'">Event Name:'+event.eventName+'</p>'+
+                '<p id="des-'+event.id+'">Event Description:'+event.eventDescription+'</p>'+
+                '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
+                '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
+                '<br>'+
+                '<button class="button is-rounded is-info" id="joinEvent-'+event.id+'">Join Event</button>'+
+                '<div id="edit-'+event.id+'"></div>'+
+            '</div>'+
+        '</article>'
+        );
+    };
+
 
     let form = $(
         `<div class="modal" id="modalPopup">
@@ -76,7 +98,7 @@ async function renderEventCard(event){
                             </div>
                         </div>
                         <div class="content">
-                            This is the description of John Smith. <br>
+                            <br>
                             <div class="columns">
                                 <div class="column">   
                                     Overnight<br>    
@@ -379,12 +401,12 @@ async function submitJoin(event, isAvail) {
     var result;
     console.log('attempting to submit form');
     //console.log(isAvail);
-    for (var i=0; i<isAvail.length; i++) {
+    /*for (var i=0; i<isAvail.length; i++) {
         if (isAvail[i].checked) {
             result[i] = 1;
         }
         else result[i]=0;
-    }
+    }*/
     console.log(result[0] + 'that was it');
 }
 
