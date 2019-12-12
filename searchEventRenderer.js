@@ -55,8 +55,8 @@ async function renderEventCard(event){
             '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
             '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
             '<br>'+
-            '<button class="button is-rounded" id="joinEvent-'+event.id+'">Join Event</button>'+
-            '<button class="button is-rounded" id="editEvent-'+event.id+'">Edit Event</button>'+
+            '<button class="button is-rounded is-info" id="joinEvent-'+event.id+'">Join Event</button>'+
+            '<button class="button is-rounded is-warning" id="editEvent-'+event.id+'">Edit Event</button>'+
             '<div id="edit-'+event.id+'"></div>'+
         '</div>'+
     '</article>'
@@ -64,7 +64,7 @@ async function renderEventCard(event){
 
     let form = $(
         `<div class="modal" id="modalPopup">
-            <div class="modal-background closeP"></div>
+            <div class="modal-background closeP"id="closeP"></div>
             <div class="modal-close closeP"id="closePopup"></div>
             <div class="modal-content">
                 <div class="card">
@@ -79,7 +79,7 @@ async function renderEventCard(event){
                             This is the description of John Smith. <br>
                             <div class="columns">
                                 <div class="column">   
-                                    Overnight<br>                        
+                                    Overnight<br>    
                                     <label class="checkbox"id="cb00">
                                         <input type="checkbox">
                                         12:00 am
@@ -283,21 +283,24 @@ async function renderEventCard(event){
                                     </label><br>
                                 </div>
                             </div>
-                            <button class="button is-success"> Submit </button>
+                            <button class="button is-success" id="submitJoin"> Submit </button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>`
     );
     
-
+    var isAvail = document.getElementsByClassName(".checkbox").value;
+    console.log(isAvail);
+    /*for (let i=0;i<48;i++) {
+        isAvail[i]
+    }*/
     
     $("#eventShow").append(card);
     $("#formpopup").append(form);
-    
-    // open modal
+
+    // open modal form
     $("#joinEvent-"+event.id+"").on("click",function(){
         // This will render the form, then call addToGroup with the new values
         modalFormOn(event);
@@ -307,7 +310,11 @@ async function renderEventCard(event){
     $(".closeP").on("click", function(){
         modalFormOff(event);
     })
-    // close modal?
+    
+    $("#submitJoin").on("click", function(){
+        submitJoin(event, isAvail);
+        //addToGroup(event.id);
+    })
 
 
     $("#editEvent-"+event.id+"").on("click",function(){
@@ -342,10 +349,9 @@ async function renderEventCard(event){
         '<button id="cancel-'+event.id+'"> Cancel Changes</button>'
 
         );
-
+            // submit changes to edited object
         $("#submit-"+event.id+"").on("click",function(){
             submitChanges(event.id);
-
         });
     
         $("#cancel-"+event.id+"").on("click",function(){
@@ -368,6 +374,20 @@ async function modalFormOff(event) {
     $("#modalPopup").removeClass("is-active");
 }
 
+// Function for submit button on modalForm
+async function submitJoin(event, isAvail) {
+    var result;
+    console.log('attempting to submit form');
+    //console.log(isAvail);
+    for (var i=0; i<isAvail.length; i++) {
+        if (isAvail[i].checked) {
+            result[i] = 1;
+        }
+        else result[i]=0;
+    }
+    console.log(result[0] + 'that was it');
+}
+
 
 
 async function submitChanges(id){
@@ -384,3 +404,4 @@ async function submitChanges(id){
         location.reload();
     });
 }
+
