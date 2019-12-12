@@ -1,21 +1,38 @@
 $(document).ready(function(){
+    renderSite();
     getEvents();
+    
+    $(".selectEvent").on("click", function(id){   // Might need to make id name
+        console.log("you clicked search button");
+        searchButton();
+    });
+
 });
+
+var eventList = [];
+
+
+async function searchButton(){
+    
+
+}
 
 async function getEvents(){
     const getEvents = await $.ajax({
         method:'get',
         url: 'http://localhost:3000/private/getEvents',
     });
+    //eventList.push(getEvents.result);
+    //console.log('HERE YOU GO'+eventList[0].eventName);
 
-    console.table(getEvents.result);
+    //console.table(getEvents.result);
     renderEvents(getEvents.result);
 }
 
 async function renderEvents(events){
     events.forEach(function(event){
         renderEventCard(event);
-        console.log('it should have rendered the event')
+        //console.log('it should have rendered the event')
     });
 
 }
@@ -44,7 +61,11 @@ async function removeFromGroup(id) {
 
 
 async function renderEventCard(event){
-    console.log('about to render');
+    var arrMem = event.members;
+    eventList.push(event.eventName);
+    console.log(eventList);
+    console.log('Members: '+arrMem[0]);
+    //console.log('about to render');
     let card;
     if (event.isMine == "true") {
         card =$(
@@ -52,11 +73,13 @@ async function renderEventCard(event){
             '<div class="media-left">'+
             '</div>'+
             '<div class="media-content">'+
+                '<p>Your Event</p>'+
                 '<p id="name-'+event.id+'">Event Name:'+event.eventName+'</p>'+
                 '<p id="des-'+event.id+'">Event Description:'+event.eventDescription+'</p>'+
                 '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
                 '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
                 '<br>'+
+                // Do we need the join event button? or should you already be in it?
                 '<button class="button is-rounded is-info" id="joinEvent-'+event.id+'">Join Event</button>'+
                 '<button class="button is-rounded is-warning" id="editEvent-'+event.id+'">Edit Event</button>'+
                 '<button class="button is-rounded is-danger" id="deleteEvent-'+event.id+'">Delete Event</button>' +
@@ -76,6 +99,10 @@ async function renderEventCard(event){
                 '<p id="len-'+event.id+'">Length:'+event.length+'</p>'+
                 '<p id="members-'+event.id+'">Members:'+event.members.toString()+'</p>'+
                 '<br>'+
+                /*if (arrMem.includes(myName)) {
+                    '<button class="button is-rounded is-info" id="leaveEvent-'+event.id+'">Leave Event</button>'+
+                }*/
+                //else '<button class="button is-rounded is-info" id="joinEvent-'+event.id+'">Join Event</button>'+
                 '<button class="button is-rounded is-info" id="joinEvent-'+event.id+'">Join Event</button>'+
                 '<div id="edit-'+event.id+'"></div>'+
             '</div>'+
@@ -340,7 +367,7 @@ async function renderEventCard(event){
 
 
     $("#editEvent-"+event.id+"").on("click",function(){
-        console.log("yes");
+        //console.log("yes");
         $("#joinEvent-"+event.id+"").attr("disabled", true)
         $("#editEvent-"+event.id+"").attr("disabled",true);
         $("#edit-"+event.id+"").append(
@@ -388,11 +415,11 @@ async function renderEventCard(event){
 
 //renderModalForm to modalFormOn
 async function modalFormOn(event) {
-    console.log('attempting to render modal form');
+    //console.log('attempting to render modal form');
     $("#modalPopup").addClass("is-active");
 }
 async function modalFormOff(event) {
-    console.log('attempting to turn modal off');
+    //console.log('attempting to turn modal off');
     $("#modalPopup").removeClass("is-active");
 }
 
@@ -427,3 +454,42 @@ async function submitChanges(id){
     });
 }
 
+//// Down here
+async function renderSite(){
+    //const $root = $('#root');
+    autocomplete();
+  }
+async function loadAutocomplete(){
+    //const $root = $('root');
+    console.log("autocompleting");
+    //$root.on()
+  }
+async function autocomplete(){
+    var list1 = [];
+
+
+//      var list1 = [];
+      var tag1 = {
+        name: "Andrew",
+        location: "india"
+      }
+      var tag2 = {
+        name: "Taylor",
+        location: "usa"
+      }
+      var tag3 = {
+        name: "Caroline",
+        location: "china"
+      }
+      list1.push(tag1.name);
+      list1.push(tag2.name);
+      list1.push(tag3.name);
+  
+      $( "#tags" ).autocomplete({ 
+        source: eventList
+  
+    /* #the tags is the id of the input element 
+    source: tags is the list of available tags*/ 
+      });
+  }
+  
