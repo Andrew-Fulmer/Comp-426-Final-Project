@@ -9,7 +9,7 @@
     "bulma": "^0.8.0",
     "bulma-calendar": "^6.0.7",
     "cool-checkboxes-for-bulma.io": "^1.1.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "node": "^13.3.0",
     "node-mailjet": "^3.3.1"
   },
